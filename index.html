@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HelixOps · 作品展厅</title>
+  <meta name="description" content="HelixOps 智能体运维控制台 — 作品链接（GitHub Pages，关机可访问）" />
+  <style>
+    :root {
+      --bg:#070b14; --card:#101826; --line:#243047; --bone:#e8eefc; --fog:#9aa8c7;
+      --lime:#b7f35b; --teal:#5eead4; --pink:#f472b6;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; color:var(--bone);
+      font-family: ui-sans-serif, system-ui, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(900px 480px at 8% -10%, #1a2f55 0%, transparent 55%),
+        radial-gradient(700px 400px at 100% 0%, #1a3a35 0%, transparent 50%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a { color:var(--teal); }
+    .wrap { max-width:1080px; margin:0 auto; padding:40px 20px 80px; }
+    .hero {
+      border:1px solid var(--line); background:linear-gradient(180deg,#121c2e,#101826);
+      border-radius:20px; padding:28px 28px 22px; margin-bottom:18px;
+    }
+    .tags span {
+      display:inline-block; border:1px solid var(--line); border-radius:999px;
+      padding:4px 10px; font-size:12px; margin:0 6px 8px 0; color:var(--fog);
+    }
+    h1 { margin:6px 0 8px; font-size:34px; letter-spacing:-.03em; }
+    h1 em { color:var(--lime); font-style:normal; }
+    .lead { color:var(--fog); max-width:72ch; margin:0 0 14px; }
+    .cta { display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+    .btn {
+      display:inline-block; text-decoration:none; font-weight:700; border-radius:10px;
+      padding:11px 16px; font-size:14px;
+    }
+    .btn.primary { background:var(--lime); color:#10200a; }
+    .btn.ghost { border:1px solid var(--line); color:var(--bone); background:transparent; }
+    .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:14px; }
+    @media (max-width:800px){ .grid{grid-template-columns:1fr;} h1{font-size:26px;} }
+    .card {
+      background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    }
+    .card img { width:100%; display:block; border-bottom:1px solid var(--line); background:#0a101c; }
+    .card .body { padding:14px 16px 16px; }
+    .card h3 { margin:0 0 6px; font-size:16px; }
+    .card p { margin:0; color:var(--fog); font-size:13px; }
+    .pill { color:var(--pink); font-size:11px; letter-spacing:.04em; text-transform:uppercase; }
+    .section { margin-top:22px; }
+    .section h2 { margin:0 0 10px; font-size:18px; color:var(--teal); }
+    .flow {
+      font-family:ui-monospace, Consolas, monospace; font-size:12px; color:var(--lime);
+      border:1px dashed var(--line); border-radius:12px; padding:14px; background:#0c1422;
+    }
+    .mods { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    @media (max-width:800px){ .mods{grid-template-columns:1fr;} }
+    .mod { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+    .mod b { display:block; color:var(--teal); margin-bottom:4px; font-size:13px; }
+    .mod span { color:var(--fog); font-size:12px; }
+    footer { margin-top:28px; color:var(--fog); font-size:12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="tags">
+        <span>作品链接 · GitHub Pages</span>
+        <span>关机可访问</span>
+        <span>Agent Ops · Eval Loop</span>
+      </div>
+      <h1>Helix<em>Ops</em> 智能体运维控制台</h1>
+      <p class="lead">
+        自研 Go + React 平台：ReAct / Host-Expert、工具调用可审计、RAG / 记忆、
+        以及「合成 → 回归 → 加权打分 / 一票否决 → LLM-as-Judge → Prompt 回流」评测闭环。
+        本页为静态展厅，不依赖作者本机开机。
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#gallery">查看界面截图</a>
+        <a class="btn ghost" href="#arch">架构一页纸</a>
+        <a class="btn ghost" href="https://github.com/huayulu47-dot/helixops" id="repoLink" target="_blank" rel="noopener">GitHub · helixops</a>
+      </div>
+    </header>
+
+    <section class="section" id="arch">
+      <h2>主链路</h2>
+      <div class="flow">
+        用户 → SSE(/chat/stream) → ChatService(system/记忆/RAG/历史)<br/>
+        → Runner(ReAct 或 Host 路由) → 工具执行(HITL) → 事件回流 → 落库 / 评测 / 改进
+      </div>
+      <div class="mods" style="margin-top:12px">
+        <div class="mod"><b>Agent Runtime</b><span>ReAct · MaxIter · 决策链 Trace · Host-Expert</span></div>
+        <div class="mod"><b>Eval Loop</b><span>六步法 · 5 分制加权 · 否决 · LLM-as-Judge</span></div>
+        <div class="mod"><b>Ops</b><span>JWT · AES-GCM · 网关重试(≤5+抖动) · OTel</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <h2>界面品鉴</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/01-login.png" alt="登录与品牌页" loading="lazy" />
+          <div class="body"><div class="pill">01 · Brand</div><h3>登录与品牌页</h3><p>演示门禁与产品定位。</p></div>
+        </article>
+        <article class="card">
+          <img src="assets/02-chat.png" alt="对话工作台" loading="lazy" />
+          <div class="body"><div class="pill">02 · Chat</div><h3>对话工作台</h3><p>决策链可视、工具调用、模型选择。</p></div>
+        </article>
+        <article class="card">
+          <img src="assets/03-eval.png" alt="评测闭环" loading="lazy" />
+          <div class="body"><div class="pill">03 · Eval</div><h3>评测闭环</h3><p>合成用例 → 黄金集回归 → 失败回流 → 自动改进。</p></div>
+        </article>
+        <article class="card">
+          <img src="assets/04-agents.png" alt="Agent 舰队" loading="lazy" />
+          <div class="body"><div class="pill">04 · Agents</div><h3>Agent 舰队</h3><p>Host 路由 + Expert 专项，渐进式披露。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      HelixOps Showcase · 静态托管（GitHub Pages / Cloudflare Pages）· 完整可交互控制台需云端常驻部署，见投递包「05-部署与自动化」。
+    </footer>
+  </div>
+</body>
+</html>
